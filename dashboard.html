@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block content %}<section><small>TRADER DASHBOARD</small><h1>Welcome, {{user.name}}</h1><div class="card"><h2>Your purchases</h2>{% for p in purchases %}<div class="row"><b>{{p.name}}</b><a class="button" href="/download/{{p.filename}}">Download</a></div>{% else %}<p>No purchases yet.</p>{% endfor %}</div></section>{% endblock %}
