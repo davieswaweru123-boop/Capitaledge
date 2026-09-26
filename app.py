@@ -12,6 +12,7 @@ def init():
  if c.execute('SELECT COUNT(*) n FROM products').fetchone()['n']==0:
   c.execute('INSERT INTO products(name,description,price,filename) VALUES(?,?,?,?)',('CapitalEdge Starter Bot','Demo licensed bot package.',19,'starter-bot.txt')); c.execute('INSERT INTO products(name,description,price,filename) VALUES(?,?,?,?)',('CapitalEdge Pro Toolkit','Trading tools and premium resources.',49,'pro-toolkit.txt'))
  c.commit(); c.close(); DOWNLOADS.mkdir(exist_ok=True); (DOWNLOADS/'starter-bot.txt').write_text('CAPITALEDGE DEMO BOT\nReplace with your licensed product.'); (DOWNLOADS/'pro-toolkit.txt').write_text('CAPITALEDGE PRO TOOLKIT\nReplace with your licensed toolkit.')
+init()
 def user():
  if 'uid' not in session:return None
  c=db(); u=c.execute('SELECT * FROM users WHERE id=?',(session['uid'],)).fetchone(); c.close(); return u
